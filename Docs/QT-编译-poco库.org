@@ -1,0 +1,24 @@
+* qt 编译poco库
+** poco 下载地址
+https://pocoproject.org/releases/poco-1.7.9/
+** 环境
+- QT   :: 5.14.1
+- poco :: 1.11.2
+
+** 准备工作
+使用 mingw-get-setup.exe 安装 mysys, 在安装时, 只选择
+msys-base, mingw 使用qt中自带的
+** 配置 
+在MinGW\mysys\1.0\msys.bat 开头添加:
+
+set PATH=D:\Qt\Qt5.14.2\Tools\mingw730_32\bin:$PATH
+
+** 编译 
+- 进入 poco 源码目录, 执行下面命令
+#+begin_src shell
+./configure --minimal --config=MinGW --no-tests --no-samples   --shared --static --cflags=-std=c99
+make
+#+end_src
+编译完成后的库在poco中的lib
+** 参考 
+- https://blog.csdn.net/LWLGZY/article/details/105576666
