@@ -1,0 +1,24 @@
+* Win10 msys2 编译 openssl
+- QT 5.14.2
+- msys2
+- openssl 3.0.2
+
+
+** openssl 下载地址
+https://www.openssl.org/source/
+
+** 解压 openssl 源代码， 然后进入相应目录
+#+begin_src shell
+./Configure mingw
+# 注意这里改成你自己QT对应的目录
+export PATH="/d/Qt/Qt5.14.2/Tools/mingw730_32/bin:$PATH"  
+# 这里需要使用 qt 所带的  mingw 来编译， 用系统自带的会出错
+mingw32-make -j8
+#+end_src
+
+** 错误
+*** unknown type name 'HINSTANCE'
+/dso_win32.c:96:5: error: unknown type name 'HINSTANCE'
+HINSTANCE h = NULL, *p = NULL;
+
+检查是否使用QT自带的 mingw-make 编译， 一般都是环境问题
