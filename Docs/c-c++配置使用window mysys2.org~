@@ -1,0 +1,5 @@
+* C/C++配置使用windows msys2中的gcc/g++编译器
+** 安装和使用msys2
+从http://www.msys2.org/下载MSYS2 下载安装
+安装后，导航到安装目录，然后运行msys2.exe。
+一般来说，默认位置为C:\msys64
